@@ -1,4 +1,4 @@
-import Logger, { Verbosity } from "./Logger";
+import Logger, { Verbosity } from "./src/Logger";
 
 (() => {
     Logger.SetModule("Logger")
