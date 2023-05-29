@@ -21,16 +21,19 @@ export default class Logger {
 
     private static constructMessage(msg: string, type: string, file: string, line: number): string {
         let moduleString = `| ${this._module}`
+        let lineString = `${file.split('\\').pop()} : ${line}`
         let typeString = `[ ${type}`
         for (let i = 0; i < 12 - this._module.length; i++)
             moduleString += ' '
+        for (let i = 0; i < 35 - lineString.length; i++)
+            lineString += ' '
         for (let i = 0; i < 5 - type.length; i++)
             typeString += ' '
         moduleString += ' |'
         typeString += ' ]'
-        return `${moduleString} ${file.split('\\').pop()} : ${line} | ${typeString} ${msg}`
+        return `${moduleString} ${lineString} ${typeString} ${msg}`
     }
-
+    
     public static Error(msg: string, { file, line }: { file: string, line: number }) {
         if (![Verbosity.DEBUG, Verbosity.ERRORS_ONLY, Verbosity.ERRORS_WARNINGS, Verbosity.EVERYTHING].includes(this._verbosity))
             return
