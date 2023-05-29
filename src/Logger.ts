@@ -21,7 +21,7 @@ export default class Logger {
 
     private static constructMessage(msg: string, type: string, file: string, line: number): string {
         let moduleString = `${this._module}`.padEnd(12, ' ')
-        let lineString = `${file.split('\\').pop()} : ${line}`.padEnd(35, ' ')
+        let lineString = `${`${file.split('\\').pop()}`.padEnd(35-line.toString().length)} ${line}`
         let typeString = `${type}`.padEnd(5, ' ')
         return `| ${moduleString} | ${lineString} | [ ${typeString} ] ${msg}`
     }
