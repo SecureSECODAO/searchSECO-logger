@@ -20,18 +20,10 @@ export default class Logger {
     }
 
     private static constructMessage(msg: string, type: string, file: string, line: number): string {
-        let moduleString = `| ${this._module}`
-        let lineString = `${file.split('\\').pop()} : ${line}`
-        let typeString = `[ ${type}`
-        for (let i = 0; i < 12 - this._module.length; i++)
-            moduleString += ' '
-        for (let i = 0; i < 35 - lineString.length; i++)
-            lineString += ' '
-        for (let i = 0; i < 5 - type.length; i++)
-            typeString += ' '
-        moduleString += ' |'
-        typeString += ' ]'
-        return `${moduleString} ${lineString} ${typeString} ${msg}`
+        let moduleString = `${this._module}`.padEnd(12, ' ')
+        let lineString = `${file.split('\\').pop()} : ${line}`.padEnd(35, ' ')
+        let typeString = `${type}`.padEnd(5, ' ')
+        return `| ${moduleString} | ${lineString} | [ ${typeString} ] ${msg}`
     }
     
     public static Error(msg: string, { file, line }: { file: string, line: number }) {
