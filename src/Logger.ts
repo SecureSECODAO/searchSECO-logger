@@ -15,6 +15,11 @@ export default class Logger {
     public static SetVerbosity(verbosity: Verbosity): void {
         this._verbosity = verbosity
     }
+
+    public static GetVerbosity(): Verbosity {
+        return this._verbosity
+    }
+
     public static SetModule(module: string) {
         this._module = module
     }
