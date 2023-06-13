@@ -25,9 +25,9 @@ export default class Logger {
     }
 
     private static constructMessage(msg: string, type: string, file: string, line: number): string {
-        let moduleString = `${this._module}`.padEnd(12, ' ')
-        let lineString = `${`${file.split(/\\|\//).pop()}`.padEnd(25-line.toString().length)} ${line}`
-        let typeString = `${type}`.padEnd(5, ' ')
+        const moduleString = `${this._module}`.padEnd(12, ' ')
+        const lineString = `${`${file.split(/\\|\//).pop()}`.padEnd(25-line.toString().length)} ${line}`
+        const typeString = `${type}`.padEnd(5, ' ')
         return `| ${moduleString} | ${lineString} | [ ${typeString} ] ${msg}`
     }
     
@@ -58,8 +58,8 @@ export default class Logger {
     }
 
     public static GetCallerLocation(): { file: string, line: number } {
-        let line: number = -1
-        let file: string = ''
+        let line = -1
+        let file = ''
         const _prepareStackTrace = Error.prepareStackTrace;
         Error.prepareStackTrace = (_, stack) => {
           line = stack[1].getLineNumber() || -1;
