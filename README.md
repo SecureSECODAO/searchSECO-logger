@@ -1,4 +1,4 @@
-# searchSECO-logger
+# SearchSECO Logger
 This is the logger implementation that the searchSECO miner and submodules use to print to `stdout`.
 ## Usage
 The main feature of the logger is to print statements to the console.
@@ -25,3 +25,11 @@ Logger.Debug("This is a debug message", Logger.GetCallerLocation())
 // no output
 
 ```
+
+## License
+
+This project is licensed under the MIT license. See [LICENSE](/LICENSE) for more info.
+
+This program has been developed by students from the bachelor Computer Science at
+Utrecht University within the Software Project course. © Copyright Utrecht University
+(Department of Information and Computing Sciences)
